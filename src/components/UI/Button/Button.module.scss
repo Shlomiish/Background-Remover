@@ -1,0 +1,57 @@
+@use '../../../base/variables';
+
+@import url('https://fonts.googleapis.com/css2?family=Gabarito&display=swap');
+.btn {
+  cursor: pointer;
+  font-family: 'Gabarito', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: none;
+
+  &.upload {
+    width: 250px;
+    height: 80px;
+    border-radius: 50px;
+    background-color: var(--btn-upload);
+    color: var(--btn-primary-font-color);
+    font-size: 25px;
+    transition: 0.3s ease;
+
+    &:hover {
+      transition: 0.3s ease;
+      background-color: var(--btn-upload-hover);
+    }
+
+    .uploadIcon {
+      position: relative;
+      font-size: 30px;
+      border-radius: 50%;
+      right: 5px;
+    }
+  }
+
+  &.download {
+    width: 220px;
+    height: 60px;
+    background-color: var(--btn-download);
+    border-radius: 50px;
+    font-size: 18px;
+    color: var(--btn-download-font-color);
+    transition: 0.3s ease;
+
+    &:hover {
+      transition: 0.3s ease;
+      background-color: var(--btn-download-hover);
+      color: var(--btn-primary-font-color);
+    }
+
+    .downloadIcon {
+      position: relative;
+      font-size: 18px;
+      border-radius: 50%;
+      right: 5px;
+    }
+  }
+}

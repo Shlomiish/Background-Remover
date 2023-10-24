@@ -1,0 +1,66 @@
+@use '../../base/variables';
+@import url('https://fonts.googleapis.com/css2?family=Gabarito&display=swap');
+
+.container {
+  width: 130%;
+  height: 150px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  padding: 5px;
+  transform: scale(0.8);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+
+  &.open {
+    transform: scale(1);
+    opacity: 1;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+
+  .btn {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 50%;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Gabarito', sans-serif;
+    background-color: white;
+    transition: 0.3s ease;
+
+    &:hover {
+      background-color: var(--btn-download-hover-2);
+      transition: 0.3s ease;
+    }
+
+    .btnText {
+      display: flex;
+      width: 100%;
+      font-size: 18px;
+    }
+
+    .title {
+      font-size: 15px;
+      color: var(--btn-download-title);
+    }
+
+    .proText {
+      width: 40px;
+      height: 20px;
+      position: relative;
+      left: 40px;
+      top: 15px;
+      padding: 2px;
+      border-radius: 5px;
+      background-image: linear-gradient(to left, #db7bf9, #823be6);
+      color: white;
+      font-size: 17px;
+    }
+  }
+}

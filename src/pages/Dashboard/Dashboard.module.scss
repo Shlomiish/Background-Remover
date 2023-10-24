@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito&display=swap');
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+
+  .headerImageDiv {
+    position: relative;
+    top: 95px;
+    right: 450px;
+
+    .headerImage {
+      width: 80px;
+    }
+  }
+
+  .editPanelDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    position: relative;
+    right: 100px;
+    transition: 400ms;
+  }
+
+  .headerTextDiv {
+    position: relative;
+    font-family: 'Gabarito', sans-serif;
+
+    .headerText {
+      font-size: 80px;
+    }
+    .title {
+      color: rgba(0, 0, 0, 0.543);
+    }
+  }
+
+  .sideCoverDiv {
+    position: relative;
+    right: 450px;
+    top: 150px;
+  }
+
+  .downloadContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 250px;
+    left: 250px;
+
+    .downloadPanel {
+      position: absolute;
+      top: 70px;
+    }
+  }
+}
