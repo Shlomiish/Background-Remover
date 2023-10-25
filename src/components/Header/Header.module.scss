@@ -1,16 +1,23 @@
-@use '../../base/variables';
-
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
   width: 100%;
-
-  .logo {
+  .headerImageDiv {
     position: relative;
-    left: 20px;
-    top: 10px;
-    cursor: pointer;
+    top: 95px;
+    right: 450px;
+
+    .headerImage {
+      width: 80px;
+    }
+  }
+  .headerTextDiv {
+    position: relative;
+    font-family: 'Gabarito', sans-serif;
+
+    .headerText {
+      font-size: 80px;
+    }
+    .title {
+      color: rgba(0, 0, 0, 0.543);
+    }
   }
 }

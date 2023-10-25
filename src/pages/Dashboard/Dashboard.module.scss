@@ -8,16 +8,6 @@
   text-align: center;
   width: 100%;
 
-  .headerImageDiv {
-    position: relative;
-    top: 95px;
-    right: 450px;
-
-    .headerImage {
-      width: 80px;
-    }
-  }
-
   .editPanelDiv {
     display: flex;
     justify-content: center;
@@ -26,18 +16,6 @@
     position: relative;
     right: 100px;
     transition: 400ms;
-  }
-
-  .headerTextDiv {
-    position: relative;
-    font-family: 'Gabarito', sans-serif;
-
-    .headerText {
-      font-size: 80px;
-    }
-    .title {
-      color: rgba(0, 0, 0, 0.543);
-    }
   }
 
   .sideCoverDiv {

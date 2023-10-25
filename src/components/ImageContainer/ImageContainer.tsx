@@ -11,16 +11,17 @@ export const ImageContainer: FC = () => {
   const [image, setImage] = useState<File | null>(null);
   const uploadFileRef = useRef<HTMLInputElement>(null);
 
-  const uploadImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const uploadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const formData = new FormData();
     let file = e?.target?.files?.[0];
 
     if (file) {
-      setImage(file);
       formData.append('uploadedFile', file);
     }
     if (file?.type === 'image/jpeg' || file?.type === 'image/png') {
-      API_REQUESTS.UPLOAD_IMAGE_FUNC(file, formData);
+      API_REQUESTS.UPLOAD_IMAGE_FUNC(formData).then((res) => {
+        setImage(res.data);
+      });
     }
   };
 
@@ -40,7 +41,7 @@ export const ImageContainer: FC = () => {
           />
         </div>
       ) : toggleContext?.isToggled ? (
-        <OriginalImg />
+        <OriginalImg imageFromParent={image} />
       ) : (
         <BgRemovedImg />
       )}

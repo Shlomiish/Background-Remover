@@ -1,6 +1,5 @@
 import { FC, useState, useContext } from 'react';
 import style from './Dashboard.module.scss';
-import headerImg from '../../assets/remove_background.svg';
 import sideCover from '../../assets/sideCover.png';
 import { ImageContainer } from '../../components/ImageContainer/ImageContainer';
 import { BgColorPanel } from '../../components/UI/BgColorPanel/BgColorPanel';
@@ -8,6 +7,7 @@ import { Button } from '../../components/UI/Button/Button';
 import { ToggleContext } from '../../Contexts/ToggleContext';
 import { ToggleButton } from '../../components/UI/ToggleButton/ToggleButton';
 import { DownloadPanel } from '../../components/DownloadPanel/DownloadPanel';
+import { Header } from '../../components/Header/Header';
 
 export const Dashboard: FC = () => {
   const [isColorPanel, setIsColorPanel] = useState<boolean>(true);
@@ -16,16 +16,7 @@ export const Dashboard: FC = () => {
 
   return (
     <div className={style.container}>
-      <div className={style.headerImageDiv}>
-        <img className={style.headerImage} src={headerImg} alt='headerImg' />
-      </div>
-      <div className={style.headerTextDiv}>
-        <h1 className={style.headerText}>Background Remover</h1>
-        <span className={style.title}>
-          Erase image backgrounds for free and replace it with different backgrounds of your
-          choosing.
-        </span>
-      </div>
+      <Header />
       <div className={style.sideCoverDiv}>
         <img className={style.sideCover} src={sideCover} alt='sideCover' />
       </div>

@@ -10,12 +10,10 @@ export const ToggleProvider: FC<Props> = ({ children }) => {
 
   const toggleTrue = () => {
     setIsToggled(true);
-    console.log(isToggled);
   };
 
   const toggleFalse = () => {
     setIsToggled(false);
-    console.log(isToggled);
   };
 
   return (
