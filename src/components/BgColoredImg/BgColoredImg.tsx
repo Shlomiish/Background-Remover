@@ -1,22 +1,25 @@
 import { FC, useEffect, useContext } from 'react';
-import style from './OriginalImg.module.scss';
+import style from './BgColoredImg.module.scss';
 import { BASE_URL } from '../../api/endpoints/endpoints';
 import { CanvasContext } from '../../Contexts/CanvasContext';
 import { ToggleContext } from '../../Contexts/ToggleContext';
 import { CloseButton } from '../UI/CloseButton/CloseButton';
 
-export const OriginalImg: FC = () => {
+interface Props {
+  color: string;
+}
+export const BgColoredImg: FC<Props> = ({ color }) => {
   const canvasContext = useContext(CanvasContext);
   const toggleContext = useContext(ToggleContext);
-  const imageSource = BASE_URL + '/' + canvasContext?.imageFileName;
+  const BgColoredImageSource = BASE_URL + '/' + 'no-bg_' + canvasContext?.imageFileName;
 
   useEffect(() => {
     const img = new Image();
-    img.src = imageSource;
+    img.src = BgColoredImageSource;
     img.crossOrigin = 'anonymous';
 
     img.onload = () => {
-      const canvas = canvasContext?.canvasRef.current;
+      const canvas = canvasContext?.canvasRef?.current;
       if (canvas) {
         const ctx = canvas.getContext('2d');
         if (ctx) {
@@ -24,15 +27,20 @@ export const OriginalImg: FC = () => {
           canvas.width = img.width;
           canvas.height = img.height;
 
+          // Apply the background color
+          ctx.fillStyle = color;
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+
           // Draw the image on the canvas
           ctx.drawImage(img, 0, 0);
         }
       }
     };
-  }, [imageSource]);
+  }, [color]);
+
   return (
     <div className={style.imgContainer}>
-      <canvas className={style.originalImg} ref={canvasContext?.canvasRef} />
+      <canvas ref={canvasContext?.canvasRef} />
       <div className={style.closeBtnDiv}>
         <CloseButton
           onClick={() => {

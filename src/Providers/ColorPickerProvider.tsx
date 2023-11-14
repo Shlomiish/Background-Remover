@@ -7,6 +7,7 @@ interface Props {
 
 export const ColorPickerProvider: FC<Props> = ({ children }) => {
   const [isColorPicker, setIsColorPicker] = useState(false);
+  const [color, setColor] = useState<string>('none');
 
   const toggle = () => {
     setIsColorPicker(!isColorPicker);
@@ -14,11 +15,16 @@ export const ColorPickerProvider: FC<Props> = ({ children }) => {
 
   const setFalse = () => {
     setIsColorPicker(false);
-    console.log(isColorPicker);
+  };
+
+  const handleColorChange = (color: string) => {
+    color !== undefined && setColor(color);
   };
 
   return (
-    <ColorPickerContext.Provider value={{ toggle, setFalse, isColorPicker }}>
+    <ColorPickerContext.Provider
+      value={{ toggle, setFalse, isColorPicker, color, handleColorChange }}
+    >
       {children}
     </ColorPickerContext.Provider>
   );

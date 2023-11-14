@@ -12,8 +12,15 @@
   .originalImg {
     top: 0;
     left: 0;
-    width: 60%;
+    width: fit-content;
     height: 100%;
     object-fit: cover;
+  }
+
+  .closeBtnDiv {
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 15px;
   }
 }

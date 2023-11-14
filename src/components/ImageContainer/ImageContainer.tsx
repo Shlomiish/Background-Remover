@@ -6,16 +6,16 @@ import { OriginalImg } from '../OriginalImg/OriginalImg';
 import { BgRemovedImg } from '../BgRemovedImg/BgRemovedImg';
 import { API_REQUESTS } from '../../api/requests/requests';
 import { GridLoader } from 'react-spinners';
+import { ColorPickerContext } from '../../Contexts/ColorPickerContext';
+import { BgColoredImg } from '../BgColoredImg/BgColoredImg';
+import { CanvasContext } from '../../Contexts/CanvasContext';
 
-interface Props {
-  sendImageToDashboard: (image: string) => void;
-}
-
-export const ImageContainer: FC<Props> = ({ sendImageToDashboard }) => {
+export const ImageContainer: FC = () => {
   const toggleContext = useContext(ToggleContext);
-  const [image, setImage] = useState<File | null>(null);
+  const colorPickerContext = useContext(ColorPickerContext);
   const uploadFileRef = useRef<HTMLInputElement>(null);
   const [isLoader, setIsLoader] = useState<Boolean>(false);
+  const canvasContext = useContext(CanvasContext);
 
   const uploadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const formData = new FormData();
@@ -23,29 +23,35 @@ export const ImageContainer: FC<Props> = ({ sendImageToDashboard }) => {
 
     if (file) {
       formData.append('uploadedFile', file);
-    }
-    if (file?.type === 'image/jpeg' || file?.type === 'image/png') {
       setIsLoader(true);
-      setTimeout(() => {
-        API_REQUESTS.UPLOAD_IMAGE_FUNC(formData).then((res) => {
-          setImage(res.data);
-          sendImageToDashboard(res.data);
-          setIsLoader(false);
-        });
-      }, 3000);
+
+      try {
+        if (file?.type === 'image/jpeg' || file?.type === 'image/png') {
+          API_REQUESTS.UPLOAD_IMAGE_FUNC(formData).then((res) => {
+            setTimeout(() => {
+              canvasContext?.setImageFileNameFunc(res.data);
+              setIsLoader(false);
+            }, 3000);
+          });
+        }
+      } catch (error) {
+        setIsLoader(false);
+        console.log(error);
+      }
     }
   };
 
   const openFileInputByRef = () => {
     uploadFileRef.current?.click();
   };
+
   return (
     <div className={style.container}>
-      {!image ? (
+      {canvasContext?.imageFileName === null ? (
         isLoader ? (
           <GridLoader size={60} color='#3e97dc' />
         ) : (
-          <div className={style.btnDiv}>
+          <>
             <Button children='Upload Photo' className='upload' onClick={openFileInputByRef} />
             <input
               type='file'
@@ -53,12 +59,14 @@ export const ImageContainer: FC<Props> = ({ sendImageToDashboard }) => {
               className={style.inputFile}
               onChange={(e) => uploadImage(e)}
             />
-          </div>
+          </>
         )
       ) : toggleContext?.isToggled ? (
-        <OriginalImg imageFromParent={image} />
-      ) : (
+        <OriginalImg />
+      ) : colorPickerContext?.color === 'none' ? (
         <BgRemovedImg />
+      ) : (
+        <BgColoredImg color={colorPickerContext?.color ? colorPickerContext?.color : 'none'} />
       )}
     </div>
   );

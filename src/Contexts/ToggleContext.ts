@@ -2,8 +2,8 @@ import { createContext } from 'react';
 
 interface ToggleContextType {
   isToggled: boolean;
-  toggleTrue: () => void;
-  toggleFalse: () => void;
+
+  toggleFunc: (toggle: boolean) => void;
 }
 
 export const ToggleContext = createContext<ToggleContextType | undefined>(undefined);

@@ -8,17 +8,11 @@ interface Props {
 export const ToggleProvider: FC<Props> = ({ children }) => {
   const [isToggled, setIsToggled] = useState(false);
 
-  const toggleTrue = () => {
-    setIsToggled(true);
-  };
-
-  const toggleFalse = () => {
-    setIsToggled(false);
+  const toggleFunc = (toggle: boolean) => {
+    setIsToggled(toggle);
   };
 
   return (
-    <ToggleContext.Provider value={{ isToggled, toggleFalse, toggleTrue }}>
-      {children}
-    </ToggleContext.Provider>
+    <ToggleContext.Provider value={{ isToggled, toggleFunc }}>{children}</ToggleContext.Provider>
   );
 };
