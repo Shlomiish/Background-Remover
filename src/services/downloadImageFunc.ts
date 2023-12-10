@@ -1,7 +1,4 @@
-export const downloadImageFunc = (
-  canvasRef: any,
-  imageNameFromParent: string | null | undefined
-) => {
+export const downloadImageFunc = (canvasRef: any, imageNameFilName: string | null | undefined) => {
   if (canvasRef !== null) {
     if (canvasRef.current) {
       if (canvasRef.current) {
@@ -10,7 +7,7 @@ export const downloadImageFunc = (
 
         const link = document.createElement('a');
         link.href = dataURL;
-        link.download = 'color_no-bg' + imageNameFromParent;
+        link.download = 'PhotoBox_' + imageNameFilName;
         link.click();
       }
     }

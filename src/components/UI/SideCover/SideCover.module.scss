@@ -1,5 +1,6 @@
 .sideCoverDiv {
-  position: relative;
-  right: 450px;
-  top: 150px;
+  width: 100%;
+  .sideCoverImg {
+    width: 100%;
+  }
 }

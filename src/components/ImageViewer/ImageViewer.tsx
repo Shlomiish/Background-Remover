@@ -1,16 +1,16 @@
 import { FC, useState, useContext, useRef } from 'react';
-import style from './ImageContainer.module.scss';
+import style from './ImageViewer.module.scss';
 import { Button } from '../UI/Button/Button';
 import { ToggleContext } from '../../Contexts/ToggleContext';
 import { OriginalImg } from '../OriginalImg/OriginalImg';
 import { BgRemovedImg } from '../BgRemovedImg/BgRemovedImg';
 import { API_REQUESTS } from '../../api/requests/requests';
-import { GridLoader } from 'react-spinners';
+import { ClipLoader } from 'react-spinners';
 import { ColorPickerContext } from '../../Contexts/ColorPickerContext';
 import { BgColoredImg } from '../BgColoredImg/BgColoredImg';
 import { CanvasContext } from '../../Contexts/CanvasContext';
 
-export const ImageContainer: FC = () => {
+export const ImageViewer: FC = () => {
   const toggleContext = useContext(ToggleContext);
   const colorPickerContext = useContext(ColorPickerContext);
   const uploadFileRef = useRef<HTMLInputElement>(null);
@@ -47,27 +47,31 @@ export const ImageContainer: FC = () => {
 
   return (
     <div className={style.container}>
-      {canvasContext?.imageFileName === null ? (
-        isLoader ? (
-          <GridLoader size={60} color='#3e97dc' />
+      <div className={style.imgContainer}>
+        {canvasContext?.imageFileName === null ? (
+          isLoader ? (
+            <div className={style.loaderDiv}>
+              <ClipLoader size={150} color='#3e97dc' />
+            </div>
+          ) : (
+            <div className={style.btnDiv}>
+              <Button children='Upload Photo' className='upload' onClick={openFileInputByRef} />
+              <input
+                type='file'
+                ref={uploadFileRef}
+                className={style.inputFile}
+                onChange={(e) => uploadImage(e)}
+              />
+            </div>
+          )
+        ) : toggleContext?.isToggled ? (
+          <OriginalImg />
+        ) : colorPickerContext?.color === 'none' ? (
+          <BgRemovedImg />
         ) : (
-          <>
-            <Button children='Upload Photo' className='upload' onClick={openFileInputByRef} />
-            <input
-              type='file'
-              ref={uploadFileRef}
-              className={style.inputFile}
-              onChange={(e) => uploadImage(e)}
-            />
-          </>
-        )
-      ) : toggleContext?.isToggled ? (
-        <OriginalImg />
-      ) : colorPickerContext?.color === 'none' ? (
-        <BgRemovedImg />
-      ) : (
-        <BgColoredImg color={colorPickerContext?.color ? colorPickerContext?.color : 'none'} />
-      )}
+          <BgColoredImg />
+        )}
+      </div>
     </div>
   );
 };

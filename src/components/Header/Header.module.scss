@@ -1,24 +1,30 @@
 .container {
   width: 100%;
-
-  .headerImageDiv {
-    position: relative;
-    top: 95px;
-    right: 450px;
-
-    .headerImage {
-      width: 80px;
-    }
-  }
   .headerTextDiv {
-    position: relative;
-    font-family: 'Gabarito', sans-serif;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     .headerText {
-      font-size: 80px;
+      font-family: 'Gabarito', sans-serif;
+      font-size: 72px;
+
+      @media (max-width: 700px) {
+        font-size: 2.5rem;
+      }
     }
     .title {
       color: rgba(0, 0, 0, 0.543);
+      font-size: 20px;
+
+      @media (max-width: 700px) {
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 1250px) {
+      width: 100%;
     }
   }
 }

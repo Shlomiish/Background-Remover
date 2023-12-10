@@ -33,7 +33,9 @@ export const BgRemovedImg: FC = () => {
 
   return (
     <div className={style.imgContainer}>
-      <canvas className={style.bgRemovedImg} ref={canvasContext?.canvasRef} />
+      <div className={style.imageDiv}>
+        <canvas className={style.bgRemovedImg} ref={canvasContext?.canvasRef} />
+      </div>
       <div className={style.closeBtnDiv}>
         <CloseButton
           onClick={() => {

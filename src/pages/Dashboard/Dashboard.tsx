@@ -1,50 +1,58 @@
-import { FC, useState, useContext } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import style from './Dashboard.module.scss';
-import { ImageContainer } from '../../components/ImageContainer/ImageContainer';
-import { BgColorPanel } from '../../components/UI/BgColorPanel/BgColorPanel';
-import { Button } from '../../components/UI/Button/Button';
-import { ToggleContext } from '../../Contexts/ToggleContext';
-import { ToggleButton } from '../../components/UI/ToggleButton/ToggleButton';
 import { Header } from '../../components/Header/Header';
-import { SideCover } from '../../components/UI/SideCover/SideCover';
 import { downloadImageFunc } from '../../services/downloadImageFunc';
-import { CanvasContext } from '../../Contexts/CanvasContext';
+import { Content } from '../../components/Content/Content';
 
-export const Dashboard: FC = () => {
-  const toggleContext = useContext(ToggleContext);
-  const canvasContext = useContext(CanvasContext);
-
-  const [image, setImage] = useState<string>();
-
-  const imageFromChild = (image: string) => {
-    setImage(image);
-    // canvasContext?.setIsImageFileNameFunc(true);
-  };
-
-  return (
+const Layout: FC<PropsWithChildren> = ({ children }) => (
+  <>
     <div className={style.container}>
       <Header />
-      <SideCover />
-      {canvasContext?.imageFileName && (
-        <div className={style.editPanelDiv}>
-          <BgColorPanel imageNameFromParent={image} />
-          <ToggleButton
-            isToggled={toggleContext?.isToggled}
-            setToFalse={() => toggleContext?.toggleFunc(false)}
-            setToTrue={() => toggleContext?.toggleFunc(true)}
-          />
-        </div>
-      )}
-      <ImageContainer />
-      {canvasContext?.imageFileName && (
-        <div className={style.downloadContainer}>
-          <Button
-            className='download'
-            children='Download'
-            onClick={() => downloadImageFunc(canvasContext?.canvasRef, image)}
-          />
-        </div>
-      )}
+      <div className={style.content}>{children}</div>
+      <Footer />
     </div>
+  </>
+);
+
+export const Dashboard: FC = () => {
+  return (
+    <Layout>
+      <Content />
+      {/* <div className={style.sideCoverDiv}>
+          <SideCover />
+        </div>
+        <div className={style.imageAndPanelsCont}>
+          <div
+            className={canvasContext?.imageFileName ? style.editPanelDiv : style.editPanelDivHidden}
+          >
+            <div className={style.toggleBtnDiv}>
+              <ToggleButton
+                isToggled={toggleContext?.isToggled}
+                setToFalse={() => toggleContext?.toggleFunc(false)}
+                setToTrue={() => toggleContext?.toggleFunc(true)}
+              />
+            </div>
+            <div className={style.colorPanelDiv}>
+              <BgColorPanel />
+            </div>
+          </div>
+          <div className={style.imageContainerDiv}>
+            <ImageViewer />
+          </div>
+          <div
+            className={
+              canvasContext?.imageFileName ? style.downloadPanelDiv : style.downloadPanelDivHidden
+            }
+          >
+            <Button
+              className='download'
+              children='Download'
+              onClick={() =>
+                downloadImageFunc(canvasContext?.canvasRef, canvasContext?.imageFileName)
+              }
+            />
+          </div>
+        </div> */}
+    </Layout>
   );
 };

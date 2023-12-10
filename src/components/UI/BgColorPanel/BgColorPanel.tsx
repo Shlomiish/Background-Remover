@@ -1,27 +1,22 @@
 import { FC, useContext, useState } from 'react';
 import style from './BgColorPanel.module.scss';
-
 import { ChooseColorButton } from '../ChooseColorButton/ChooseColorButton';
 import { ColorPickerContext } from '../../../Contexts/ColorPickerContext';
-
 import { HexColorPicker } from 'react-colorful';
-import { API_REQUESTS } from '../../../api/requests/requests';
+import { ToggleContext } from '../../../Contexts/ToggleContext';
 
-interface Props {
-  imageNameFromParent?: string;
-}
-
-export const BgColorPanel: FC<Props> = ({ imageNameFromParent }) => {
-  const buttonColorCountArray = ['none', 'white', 'black', 'pink', 'yellow', 'gradient'];
+export const BgColorPanel: FC = () => {
+  const buttonColorCountArray = ['none', 'white', 'black', 'pink', 'blue', 'yellow', 'gradient'];
   const colorPickerContext = useContext(ColorPickerContext);
+  const toggleContext = useContext(ToggleContext);
   const [hexColor, setHexColor] = useState<string>();
 
   const handleColorChange = (e: string) => {
     const color = e;
     if (color !== 'gradient') {
       colorPickerContext?.handleColorChange(color);
-      // uploadBgColor(color);
       colorPickerContext?.setFalse();
+      toggleContext?.toggleFunc(false);
     }
 
     toggleColorPicker(color);
@@ -35,29 +30,8 @@ export const BgColorPanel: FC<Props> = ({ imageNameFromParent }) => {
 
   const hexColorChange = (e: string) => {
     let color = e;
-    //setHexColor(newColor);
     colorPickerContext?.handleColorChange(color);
-
-    //uploadBgColor(e);
-  };
-
-  const uploadBgColor = async (color: string) => {
-    if (imageNameFromParent && colorPickerContext?.color) {
-      try {
-        const formData = new FormData();
-        formData.append('uploadedFileName', imageNameFromParent);
-        formData.append('color', color);
-        API_REQUESTS.SET_BG_COLOR_FUNC(formData)
-          .then((res) => {
-            console.log(res.data);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      } catch (error) {
-        console.log(error);
-      }
-    }
+    toggleContext?.toggleFunc(false);
   };
 
   return (

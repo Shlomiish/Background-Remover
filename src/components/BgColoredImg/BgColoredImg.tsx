@@ -3,14 +3,13 @@ import style from './BgColoredImg.module.scss';
 import { BASE_URL } from '../../api/endpoints/endpoints';
 import { CanvasContext } from '../../Contexts/CanvasContext';
 import { ToggleContext } from '../../Contexts/ToggleContext';
+import { ColorPickerContext } from '../../Contexts/ColorPickerContext';
 import { CloseButton } from '../UI/CloseButton/CloseButton';
 
-interface Props {
-  color: string;
-}
-export const BgColoredImg: FC<Props> = ({ color }) => {
+export const BgColoredImg: FC = () => {
   const canvasContext = useContext(CanvasContext);
   const toggleContext = useContext(ToggleContext);
+  const colorPickerContext = useContext(ColorPickerContext);
   const BgColoredImageSource = BASE_URL + '/' + 'no-bg_' + canvasContext?.imageFileName;
 
   useEffect(() => {
@@ -28,7 +27,7 @@ export const BgColoredImg: FC<Props> = ({ color }) => {
           canvas.height = img.height;
 
           // Apply the background color
-          ctx.fillStyle = color;
+          ctx.fillStyle = colorPickerContext?.color;
           ctx.fillRect(0, 0, canvas.width, canvas.height);
 
           // Draw the image on the canvas
@@ -36,7 +35,7 @@ export const BgColoredImg: FC<Props> = ({ color }) => {
         }
       }
     };
-  }, [color]);
+  }, [colorPickerContext?.color]);
 
   return (
     <div className={style.imgContainer}>
@@ -46,6 +45,7 @@ export const BgColoredImg: FC<Props> = ({ color }) => {
           onClick={() => {
             canvasContext?.setImageFileNameFunc(null);
             toggleContext?.toggleFunc(false);
+            colorPickerContext?.handleColorChange('none');
           }}
         />
       </div>

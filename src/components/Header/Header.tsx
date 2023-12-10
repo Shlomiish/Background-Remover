@@ -5,9 +5,9 @@ import headerImg from '../../assets/remove_background.svg';
 export const Header: FC = () => {
   return (
     <div className={style.container}>
-      <div className={style.headerImageDiv}>
+      {/* <div className={style.headerImageDiv}>
         <img className={style.headerImage} src={headerImg} alt='headerImg' />
-      </div>
+      </div> */}
       <div className={style.headerTextDiv}>
         <h1 className={style.headerText}>Background Remover</h1>
         <span className={style.title}>

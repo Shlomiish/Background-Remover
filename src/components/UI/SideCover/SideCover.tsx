@@ -5,7 +5,7 @@ import sideCover from '../../../assets/sideCover.png';
 export const SideCover: FC = () => {
   return (
     <div className={style.sideCoverDiv}>
-      <img src={sideCover} alt='sideCover' />
+      <img className={style.sideCoverImg} src={sideCover} alt='sideCover' />
     </div>
   );
 };
