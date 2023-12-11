@@ -5,11 +5,12 @@ interface Props {
   setToFalse: () => void;
   setToTrue: () => void;
   isToggled?: boolean;
+  onClick?: () => void;
 }
 
-export const ToggleButton: FC<Props> = ({ setToFalse, setToTrue, isToggled }) => {
+export const ToggleButton: FC<Props> = ({ setToFalse, setToTrue, isToggled, onClick }) => {
   return (
-    <div className={style.switch}>
+    <div className={style.switch} onClick={onClick}>
       <span className={!isToggled ? `${style.slider} ${style.sliderActive}` : style.slider} />
       <div className={style.beforeAfterDiv}>
         <div

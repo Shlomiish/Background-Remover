@@ -19,19 +19,27 @@
     .togglePanelDiv {
       width: 50%;
       display: flex;
+      justify-content: flex-end;
     }
   }
 
   .imgViewerDiv {
     width: 100%;
+    height: 65vh;
+  }
+  .downloadBtnDiv {
     display: flex;
-    align-items: center;
     justify-content: center;
+    width: 85%;
   }
 
   @media (max-width: 1250px) {
     .panelDiv {
       width: 640px;
+    }
+
+    .imgViewerDiv {
+      height: 75vh;
     }
   }
   @media (max-width: 800px) {
@@ -39,19 +47,45 @@
       width: 80%;
     }
   }
+  @media (max-width: 700px) {
+    .panelDiv {
+      width: 80%;
+    }
+  }
   @media (max-width: 640px) {
     .panelDiv {
-      flex-direction: column;
+      flex-direction: column-reverse;
       width: 100%;
+      padding-top: 35px;
       .colorPanelDiv {
         justify-content: center;
         align-items: center;
       }
-
       .togglePanelDiv {
         justify-content: center;
         align-items: center;
       }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .imgViewerDiv {
+      height: 65vh;
+    }
+  }
+  @media (max-width: 500px) {
+    .imgViewerDiv {
+      height: 55vh;
+    }
+  }
+  @media (max-width: 401px) {
+    .imgViewerDiv {
+      height: 45vh;
+    }
+  }
+  @media (max-width: 300px) {
+    .imgViewerDiv {
+      height: 40vh;
     }
   }
 }

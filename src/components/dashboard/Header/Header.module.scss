@@ -23,11 +23,13 @@
     }
   }
   @media (max-width: 700px) {
-    .headerText {
-      font-size: 2.5rem;
-    }
-    .title {
-      font-size: 1rem;
+    .headerTextDiv {
+      .headerText {
+        font-size: 2.5rem;
+        .title {
+          font-size: 2rem;
+        }
+      }
     }
   }
 }

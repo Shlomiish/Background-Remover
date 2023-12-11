@@ -3,11 +3,13 @@ import style from './BgRemovedImg.module.scss';
 import { BASE_URL } from '../../../../../api/endpoints/endpoints';
 import { CanvasContext } from '../../../../../Contexts/CanvasContext';
 import { ToggleContext } from '../../../../../Contexts/ToggleContext';
+import { ColorPickerContext } from '../../../../../Contexts/ColorPickerContext';
 import { CloseButton } from '../../../../UI/CloseButton/CloseButton';
 
 export const BgRemovedImg: FC = () => {
   const canvasContext = useContext(CanvasContext);
   const toggleContext = useContext(ToggleContext);
+  const colorPickerContext = useContext(ColorPickerContext);
   const noBgImageSource = BASE_URL + '/' + 'no-bg_' + canvasContext?.imageFileName;
 
   useEffect(() => {
@@ -41,6 +43,7 @@ export const BgRemovedImg: FC = () => {
           onClick={() => {
             canvasContext?.setImageFileNameFunc(null);
             toggleContext?.toggleFunc(false);
+            colorPickerContext?.setFalse();
           }}
         />
       </div>

@@ -46,6 +46,7 @@ export const BgColoredImg: FC = () => {
             canvasContext?.setImageFileNameFunc(null);
             toggleContext?.toggleFunc(false);
             colorPickerContext?.handleColorChange('none');
+            colorPickerContext?.setFalse();
           }}
         />
       </div>
