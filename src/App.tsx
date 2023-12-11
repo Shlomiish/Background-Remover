@@ -1,14 +1,13 @@
 import './App.css';
 import { Dashboard } from './pages/Dashboard/Dashboard';
-import { Footer } from './components/Footer/Footer';
-import { TopBar } from './components/TopBar/TopBar';
+import { Layout } from './components/layout/Layout';
 
 function App() {
   return (
     <div className='App'>
-      <TopBar />
-      <Dashboard />
-      {/* <Footer /> */}
+      <Layout>
+        <Dashboard />
+      </Layout>
     </div>
   );
 }

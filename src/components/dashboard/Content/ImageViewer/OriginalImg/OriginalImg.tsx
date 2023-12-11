@@ -1,9 +1,9 @@
 import { FC, useEffect, useContext } from 'react';
 import style from './OriginalImg.module.scss';
-import { BASE_URL } from '../../api/endpoints/endpoints';
-import { CanvasContext } from '../../Contexts/CanvasContext';
-import { ToggleContext } from '../../Contexts/ToggleContext';
-import { CloseButton } from '../UI/CloseButton/CloseButton';
+import { BASE_URL } from '../../../../../api/endpoints/endpoints';
+import { CanvasContext } from '../../../../../Contexts/CanvasContext';
+import { ToggleContext } from '../../../../../Contexts/ToggleContext';
+import { CloseButton } from '../../../../UI/CloseButton/CloseButton';
 
 export const OriginalImg: FC = () => {
   const canvasContext = useContext(CanvasContext);

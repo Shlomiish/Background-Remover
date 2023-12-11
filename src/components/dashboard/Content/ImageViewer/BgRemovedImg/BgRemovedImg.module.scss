@@ -1,4 +1,4 @@
-@use '../../base/variables';
+@use '../../../../../base/variables';
 
 .imgContainer {
   width: 100%;
@@ -8,11 +8,14 @@
   border-radius: 20px;
   background-color: var(--primary-bg-color);
   position: relative;
+  overflow: hidden;
 
   .imageDiv {
     display: flex;
+    justify-content: center;
     .bgRemovedImg {
-      background-image: url(../../assets/checkBoardBg.png);
+      background-image: url(../../../../../assets/checkBoardBg.png);
+      object-fit: contain;
     }
   }
 

@@ -1,24 +1,14 @@
-import { FC, PropsWithChildren } from 'react';
-import style from './Dashboard.module.scss';
-import { Header } from '../../components/Header/Header';
-import { downloadImageFunc } from '../../services/downloadImageFunc';
-import { Content } from '../../components/Content/Content';
+import { FC } from 'react';
+import { Content } from '../../components/dashboard/Content/Content';
+import { Header } from '../../components/dashboard/Header/Header';
 
-const Layout: FC<PropsWithChildren> = ({ children }) => (
+export const Dashboard: FC = () => (
   <>
-    <div className={style.container}>
-      <Header />
-      <div className={style.content}>{children}</div>
-      <Footer />
-    </div>
+    <Header />
+    <Content />
   </>
 );
-
-export const Dashboard: FC = () => {
-  return (
-    <Layout>
-      <Content />
-      {/* <div className={style.sideCoverDiv}>
+/* <div className={style.sideCoverDiv}>
           <SideCover />
         </div>
         <div className={style.imageAndPanelsCont}>
@@ -52,7 +42,4 @@ export const Dashboard: FC = () => {
               }
             />
           </div>
-        </div> */}
-    </Layout>
-  );
-};
+        </div> */

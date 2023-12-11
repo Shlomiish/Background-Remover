@@ -1,9 +1,9 @@
 import { FC, useEffect, useContext } from 'react';
 import style from './BgRemovedImg.module.scss';
-import { BASE_URL } from '../../api/endpoints/endpoints';
-import { CanvasContext } from '../../Contexts/CanvasContext';
-import { ToggleContext } from '../../Contexts/ToggleContext';
-import { CloseButton } from '../UI/CloseButton/CloseButton';
+import { BASE_URL } from '../../../../../api/endpoints/endpoints';
+import { CanvasContext } from '../../../../../Contexts/CanvasContext';
+import { ToggleContext } from '../../../../../Contexts/ToggleContext';
+import { CloseButton } from '../../../../UI/CloseButton/CloseButton';
 
 export const BgRemovedImg: FC = () => {
   const canvasContext = useContext(CanvasContext);

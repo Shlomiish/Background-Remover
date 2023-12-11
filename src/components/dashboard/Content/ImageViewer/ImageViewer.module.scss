@@ -1,17 +1,15 @@
 .container {
   width: 100%;
-  height: 60vh;
+  height: 70vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  position: relative;
 
   .imgContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url('../../assets/checkBoardBg.png');
+    background-image: url('../../../../assets/checkBoardBg.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50%;
@@ -28,28 +26,41 @@
   }
 
   @media (max-width: 1250px) {
-    width: 100%;
-    height: 60vh;
-    min-width: 100%;
+    .imgContainer {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
   }
 
   @media (max-width: 700px) {
-    height: 60vh;
+    .imgContainer {
+      height: 100%;
+    }
   }
   @media (max-width: 600px) {
-    height: 55vh;
+    .imgContainer {
+      height: 85%;
+    }
   }
   @media (max-width: 500px) {
-    height: 45vh;
+    .imgContainer {
+      height: 70%;
+    }
   }
   @media (max-width: 400px) {
-    height: 35vh;
+    .imgContainer {
+      height: 60%;
+    }
   }
 
   @media (max-width: 300px) {
-    height: 25vh;
+    .imgContainer {
+      height: 55%;
+    }
   }
   @media (max-width: 200px) {
-    height: 20vh;
+    .imgContainer {
+      height: 50%;
+    }
   }
 }

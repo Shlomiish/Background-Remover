@@ -1,108 +1,96 @@
 @import url('https://fonts.googleapis.com/css2?family=Gabarito&display=swap');
 
-.container {
+.sideCoverDiv {
   display: flex;
-  flex-direction: column;
-
-  .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-
-    .sideCoverDiv {
-      display: flex;
-      width: 50%;
-      align-items: center;
-      justify-content: center;
-    }
-    //   .sideCoverDiv {
-    //     display: flex;
-    //     justify-content: center;
-    //     width: 50%;
-
-    //     // @media (max-width: 1250px) {
-    //     //   display: none;
-    //     // }
-    //   }
-    //   .imageAndPanelsCont {
-    //     flex-direction: column;
-    //     justify-content: center;
-    //     align-items: center;
-    //     width: 50%;
-
-    //     .editPanelDiv {
-    //       display: flex;
-    //       justify-content: space-around;
-    //       align-items: center;
-    //       position: relative;
-    //       width: 100%;
-
-    //       // @media (max-width: 1250px) {
-    //       //   justify-content: center;
-    //       //   min-width: 50%;
-    //       //   top: 25px;
-    //       // }
-    //       // @media (max-width: 700px) {
-    //       //   flex-direction: column;
-    //       //   justify-content: center;
-    //       // }
-
-    //       .colorPanelDiv {
-    //         display: flex;
-    //         justify-content: flex-start;
-    //       }
-    //       .toggleBtnDiv {
-    //         display: flex;
-    //         justify-content: flex-end;
-    //       }
-    //     }
-    //     .editPanelDivHidden {
-    //       display: none;
-    //     }
-
-    //     .imageContainerDiv {
-    //       display: flex;
-    //       width: 100%;
-    //       justify-content: center;
-    //       align-items: center;
-    //       height: 60vh;
-
-    //       // @media (max-width: 1250px) {
-    //       //   width: 100%;
-    //       //   height: 75vh;
-    //       // }
-    //       // @media (max-width: 700px) {
-    //       //   width: 100%;
-    //       //   height: 70vh;
-    //       // }
-    //       // @media (max-width: 600px) {
-    //       //   width: 100%;
-    //       //   height: 60vh;
-    //       // }
-    //       // @media (max-width: 500px) {
-    //       //   width: 100%;
-    //       //   height: 50vh;
-    //       // }
-    //       // @media (max-width: 400px) {
-    //       //   width: 100%;
-    //       //   height: 40vh;
-    //       // }
-    //       // @media (max-width: 400px) {
-    //       //   width: 100%;
-    //       //   height: 40vh;
-    //       // }
-    //     }
-
-    //     .downloadPanelDiv {
-    //       display: flex;
-    //       justify-content: center;
-    //       position: relative;
-    //     }
-    //     .downloadPanelDivHidden {
-    //       display: none;
-    //     }
-    //   }
-    // }
-  }
+  width: 50%;
+  align-items: center;
+  justify-content: center;
 }
+//   .sideCoverDiv {
+//     display: flex;
+//     justify-content: center;
+//     width: 50%;
+
+//     // @media (max-width: 1250px) {
+//     //   display: none;
+//     // }
+//   }
+//   .imageAndPanelsCont {
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     width: 50%;
+
+//     .editPanelDiv {
+//       display: flex;
+//       justify-content: space-around;
+//       align-items: center;
+//       position: relative;
+//       width: 100%;
+
+//       // @media (max-width: 1250px) {
+//       //   justify-content: center;
+//       //   min-width: 50%;
+//       //   top: 25px;
+//       // }
+//       // @media (max-width: 700px) {
+//       //   flex-direction: column;
+//       //   justify-content: center;
+//       // }
+
+//       .colorPanelDiv {
+//         display: flex;
+//         justify-content: flex-start;
+//       }
+//       .toggleBtnDiv {
+//         display: flex;
+//         justify-content: flex-end;
+//       }
+//     }
+//     .editPanelDivHidden {
+//       display: none;
+//     }
+
+//     .imageContainerDiv {
+//       display: flex;
+//       width: 100%;
+//       justify-content: center;
+//       align-items: center;
+//       height: 60vh;
+
+//       // @media (max-width: 1250px) {
+//       //   width: 100%;
+//       //   height: 75vh;
+//       // }
+//       // @media (max-width: 700px) {
+//       //   width: 100%;
+//       //   height: 70vh;
+//       // }
+//       // @media (max-width: 600px) {
+//       //   width: 100%;
+//       //   height: 60vh;
+//       // }
+//       // @media (max-width: 500px) {
+//       //   width: 100%;
+//       //   height: 50vh;
+//       // }
+//       // @media (max-width: 400px) {
+//       //   width: 100%;
+//       //   height: 40vh;
+//       // }
+//       // @media (max-width: 400px) {
+//       //   width: 100%;
+//       //   height: 40vh;
+//       // }
+//     }
+
+//     .downloadPanelDiv {
+//       display: flex;
+//       justify-content: center;
+//       position: relative;
+//     }
+//     .downloadPanelDivHidden {
+//       display: none;
+//     }
+//   }
+// }

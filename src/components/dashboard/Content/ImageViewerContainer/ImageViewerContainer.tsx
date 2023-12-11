@@ -1,14 +1,15 @@
 import { FC, useContext } from 'react';
 import { ImageViewer } from '../ImageViewer/ImageViewer';
 import style from './ImageViewerContainer.module.scss';
-import { BgColorPanel } from '../UI/BgColorPanel/BgColorPanel';
-import { ToggleButton } from '../UI/ToggleButton/ToggleButton';
-import { ToggleContext } from '../../Contexts/ToggleContext';
-import { CanvasContext } from '../../Contexts/CanvasContext';
+import { BgColorPanel } from '../../../UI/BgColorPanel/BgColorPanel';
+import { ToggleButton } from '../../../UI/ToggleButton/ToggleButton';
+import { ToggleContext } from '../../../../Contexts/ToggleContext';
+import { CanvasContext } from '../../../../Contexts/CanvasContext';
 
 export const ImageViewerContainer: FC = () => {
   const toggleContext = useContext(ToggleContext);
   const canvasContext = useContext(CanvasContext);
+
   return (
     <div className={style.container}>
       <div className={style.panelDiv}>

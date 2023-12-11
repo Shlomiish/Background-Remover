@@ -1,10 +1,10 @@
 import { FC, useEffect, useContext } from 'react';
 import style from './BgColoredImg.module.scss';
-import { BASE_URL } from '../../api/endpoints/endpoints';
-import { CanvasContext } from '../../Contexts/CanvasContext';
-import { ToggleContext } from '../../Contexts/ToggleContext';
-import { ColorPickerContext } from '../../Contexts/ColorPickerContext';
-import { CloseButton } from '../UI/CloseButton/CloseButton';
+import { BASE_URL } from '../../../../../api/endpoints/endpoints';
+import { CanvasContext } from '../../../../../Contexts/CanvasContext';
+import { ToggleContext } from '../../../../../Contexts/ToggleContext';
+import { ColorPickerContext } from '../../../../../Contexts/ColorPickerContext';
+import { CloseButton } from '../../../../UI/CloseButton/CloseButton';
 
 export const BgColoredImg: FC = () => {
   const canvasContext = useContext(CanvasContext);

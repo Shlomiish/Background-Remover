@@ -1,14 +1,14 @@
 import { FC, useState, useContext, useRef } from 'react';
 import style from './ImageViewer.module.scss';
-import { Button } from '../UI/Button/Button';
-import { ToggleContext } from '../../Contexts/ToggleContext';
-import { OriginalImg } from '../OriginalImg/OriginalImg';
-import { BgRemovedImg } from '../BgRemovedImg/BgRemovedImg';
-import { API_REQUESTS } from '../../api/requests/requests';
+import { Button } from '../../../UI/Button/Button';
+import { ToggleContext } from '../../../../Contexts/ToggleContext';
+import { OriginalImg } from './OriginalImg/OriginalImg';
+import { BgRemovedImg } from './BgRemovedImg/BgRemovedImg';
+import { API_REQUESTS } from '../../../../api/requests/requests';
 import { ClipLoader } from 'react-spinners';
-import { ColorPickerContext } from '../../Contexts/ColorPickerContext';
-import { BgColoredImg } from '../BgColoredImg/BgColoredImg';
-import { CanvasContext } from '../../Contexts/CanvasContext';
+import { ColorPickerContext } from '../../../../Contexts/ColorPickerContext';
+import { BgColoredImg } from './BgColoredImg/BgColoredImg';
+import { CanvasContext } from '../../../../Contexts/CanvasContext';
 
 export const ImageViewer: FC = () => {
   const toggleContext = useContext(ToggleContext);
