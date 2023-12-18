@@ -5,10 +5,10 @@ import { ToggleContext } from '../../../../Contexts/ToggleContext';
 import { OriginalImg } from './OriginalImg/OriginalImg';
 import { BgRemovedImg } from './BgRemovedImg/BgRemovedImg';
 import { API_REQUESTS } from '../../../../api/requests/requests';
-import { ClipLoader } from 'react-spinners';
 import { ColorPickerContext } from '../../../../Contexts/ColorPickerContext';
 import { BgColoredImg } from './BgColoredImg/BgColoredImg';
 import { CanvasContext } from '../../../../Contexts/CanvasContext';
+import { Loader } from '../../../UI/Loader/Loader';
 
 export const ImageViewer: FC = () => {
   const toggleContext = useContext(ToggleContext);
@@ -28,10 +28,8 @@ export const ImageViewer: FC = () => {
       try {
         if (file?.type === 'image/jpeg' || file?.type === 'image/png') {
           API_REQUESTS.UPLOAD_IMAGE_FUNC(formData).then((res) => {
-            setTimeout(() => {
-              canvasContext?.setImageFileNameFunc(res.data);
-              setIsLoader(false);
-            }, 3000);
+            canvasContext?.setImageFileNameFunc(res.data);
+            setIsLoader(false);
           });
         }
       } catch (error) {
@@ -50,9 +48,7 @@ export const ImageViewer: FC = () => {
       <div className={style.imgContainer}>
         {canvasContext?.imageFileName === null ? (
           isLoader ? (
-            <div className={style.loaderDiv}>
-              <ClipLoader size={150} color='#3e97dc' />
-            </div>
+            <Loader />
           ) : (
             <div className={style.btnDiv}>
               <Button children='Upload Photo' className='upload' onClick={openFileInputByRef} />
