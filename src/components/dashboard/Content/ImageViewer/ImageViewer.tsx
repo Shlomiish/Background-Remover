@@ -17,6 +17,8 @@ export const ImageViewer: FC = () => {
   const [isLoader, setIsLoader] = useState<Boolean>(false);
   const canvasContext = useContext(CanvasContext);
 
+  const BASE_URL = 'https://photobox-background-remover-api-yjog.onrender.com';
+
   const uploadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const formData = new FormData();
     let file = e?.target?.files?.[0];
@@ -56,7 +58,15 @@ export const ImageViewer: FC = () => {
                 type='file'
                 ref={uploadFileRef}
                 className={style.inputFile}
-                onChange={(e) => uploadImage(e)}
+                onChange={(
+                  e /*uploadImage(e)*/ // Replace this with the actual URL provided by Render.com
+                ) =>
+                  // Use BASE_URL in your API requests
+                  fetch(`${BASE_URL}/upload_image`)
+                    .then((response) => response.json())
+                    .then((data) => console.log('Received data:', data))
+                    .catch((error) => console.error('Error:', error))
+                }
               />
             </div>
           )
