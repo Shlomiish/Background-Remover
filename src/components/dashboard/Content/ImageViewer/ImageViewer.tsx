@@ -18,25 +18,46 @@ export const ImageViewer: FC = () => {
   const canvasContext = useContext(CanvasContext);
 
   const uploadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const formData = new FormData();
-    let file = e?.target?.files?.[0];
+    // const formData = new FormData();
+    // let file = e?.target?.files?.[0];
 
-    if (file) {
-      formData.append('uploadedFile', file);
-      setIsLoader(true);
+    // if (file) {
+    //   formData.append('uploadedFile', file);
+    //   setIsLoader(true);
 
-      try {
-        if (file?.type === 'image/jpeg' || file?.type === 'image/png') {
-          API_REQUESTS.UPLOAD_IMAGE_FUNC(formData).then((res) => {
-            canvasContext?.setImageFileNameFunc(res.data);
-            setIsLoader(false);
-          });
+    //   try {
+    //     if (file?.type === 'image/jpeg' || file?.type === 'image/png') {
+    //       API_REQUESTS.UPLOAD_IMAGE_FUNC(formData).then((res) => {
+    //         canvasContext?.setImageFileNameFunc(res.data);
+    //         setIsLoader(false);
+    //       });
+    //     }
+    //   } catch (error) {
+    //     setIsLoader(false);
+    //     console.log(error);
+    //   }
+    // }
+    fetch('https://photobox-background-remover-api-yjog.onrender.com/upload_image', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        // Your data here
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          console.error('Server returned an error:', response.status, response.statusText);
         }
-      } catch (error) {
-        setIsLoader(false);
-        console.log(error);
-      }
-    }
+        console.log('kaki');
+      })
+      .then((data) => {
+        console.log('Server response:', data);
+      })
+      .catch((error) => {
+        console.error('Error during fetch:', error);
+      });
   };
 
   const openFileInputByRef = () => {
