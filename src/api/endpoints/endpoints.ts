@@ -2,5 +2,5 @@ export const BASE_URL = 'https://photobox-background-remover-api-yjog.onrender.c
 
 export const API_ENDPOINTS = {
   UPLOAD_IMAGE: `${BASE_URL}/upload_image`,
-  TEST: `${BASE_URL}`,
+  TEST: `${BASE_URL}/upload_image`,
 };
