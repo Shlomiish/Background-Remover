@@ -18,29 +18,23 @@ export const ImageViewer: FC = () => {
   const canvasContext = useContext(CanvasContext);
 
   const uploadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // const formData = new FormData();
-    // let file = e?.target?.files?.[0];
-    // if (file) {
-    //   formData.append('uploadedFile', file);
-    //   setIsLoader(true);
-    //   try {
-    //     if (file?.type === 'image/jpeg' || file?.type === 'image/png') {
-    //       API_REQUESTS.UPLOAD_IMAGE_FUNC(formData).then((res) => {
-    //         canvasContext?.setImageFileNameFunc(res.data);
-    //         setIsLoader(false);
-    //       });
-    //     }
-    //   } catch (error) {
-    //     setIsLoader(false);
-    //     console.log(error);
-    //   }
-    // }
-
-    const apiUrl = 'https://photobox-background-remover-api-yjog.onrender.com';
-    fetch(apiUrl)
-      .then((response) => console.log('hey from frontttt', response))
-      .then((data) => console.log(data))
-      .catch((error) => console.error('Error:', error));
+    const formData = new FormData();
+    let file = e?.target?.files?.[0];
+    if (file) {
+      formData.append('uploadedFile', file);
+      setIsLoader(true);
+      try {
+        if (file?.type === 'image/jpeg' || file?.type === 'image/png') {
+          API_REQUESTS.UPLOAD_IMAGE_FUNC(formData).then((res) => {
+            canvasContext?.setImageFileNameFunc(res.data);
+            setIsLoader(false);
+          });
+        }
+      } catch (error) {
+        setIsLoader(false);
+        console.log(error);
+      }
+    }
   };
 
   const openFileInputByRef = () => {
