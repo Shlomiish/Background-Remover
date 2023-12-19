@@ -7,8 +7,4 @@ export const API_REQUESTS = {
     let response = await axios.post(API_ENDPOINTS.UPLOAD_IMAGE, formData);
     return response;
   },
-  TEST_FUNC: async () => {
-    let response = await axios.post(API_ENDPOINTS.TEST);
-    return response;
-  },
 };
