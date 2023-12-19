@@ -56,7 +56,7 @@ export const ImageViewer: FC = () => {
                 type='file'
                 ref={uploadFileRef}
                 className={style.inputFile}
-                onChange={(e) => uploadImage(e)}
+                onChange={(e) => /*uploadImage(e)*/ console.log(process.env.REACT_APP_API_URL)}
               />
             </div>
           )
