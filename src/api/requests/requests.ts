@@ -8,7 +8,7 @@ export const API_REQUESTS = {
     return response;
   },
   TEST_FUNC: async () => {
-    let response = await axios.get(API_ENDPOINTS.TEST);
+    let response = await axios.post(API_ENDPOINTS.TEST);
     return response;
   },
 };
