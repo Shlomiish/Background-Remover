@@ -20,11 +20,9 @@ export const ImageViewer: FC = () => {
   const uploadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     // const formData = new FormData();
     // let file = e?.target?.files?.[0];
-
     // if (file) {
     //   formData.append('uploadedFile', file);
     //   setIsLoader(true);
-
     //   try {
     //     if (file?.type === 'image/jpeg' || file?.type === 'image/png') {
     //       API_REQUESTS.UPLOAD_IMAGE_FUNC(formData).then((res) => {
@@ -37,27 +35,12 @@ export const ImageViewer: FC = () => {
     //     console.log(error);
     //   }
     // }
-    fetch('https://photobox-background-remover-api-yjog.onrender.com/upload_image', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        // Your data here
-      }),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          console.error('Server returned an error:', response.status, response.statusText);
-        }
-        console.log('kaki');
-      })
-      .then((data) => {
-        console.log('Server response:', data);
-      })
-      .catch((error) => {
-        console.error('Error during fetch:', error);
-      });
+
+    const apiUrl = 'https://photobox-background-remover-api-yjog.onrender.com';
+    fetch(apiUrl)
+      .then((response) => console.log('hey from frontttt', response))
+      .then((data) => console.log(data))
+      .catch((error) => console.error('Error:', error));
   };
 
   const openFileInputByRef = () => {
