@@ -32,7 +32,7 @@ export const ImageViewer: FC = () => {
         if (file?.type === 'image/jpeg' || file?.type === 'image/png') {
           console.log('after try if');
 
-          API_REQUESTS.UPLOAD_IMAGE_FUNC(formData).then((res) => {
+          API_REQUESTS.TEST_FUNC(formData).then((res) => {
             canvasContext?.setImageFileNameFunc(res.data);
             setIsLoader(false);
           });
