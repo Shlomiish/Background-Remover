@@ -20,31 +20,31 @@ export const ImageViewer: FC = () => {
   const uploadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log('start');
 
-    const formData = new FormData();
-    let file = e?.target?.files?.[0];
-    if (file) {
-      console.log('after if');
-      formData.append('uploadedFile', file);
-      setIsLoader(true);
+    // const formData = new FormData();
+    // let file = e?.target?.files?.[0];
+    // if (file) {
+    //   console.log('after if');
+    //   formData.append('uploadedFile', file);
+    //   setIsLoader(true);
 
-      try {
-        console.log('after try');
-        if (file?.type === 'image/jpeg' || file?.type === 'image/png') {
-          console.log('after try if');
+    //   try {
+    //     console.log('after try');
+    //     if (file?.type === 'image/jpeg' || file?.type === 'image/png') {
+    //       console.log('after try if');
 
-          API_REQUESTS.TEST_FUNC(formData).then((res) => {
-            canvasContext?.setImageFileNameFunc(res.data);
-            setIsLoader(false);
-          });
-        }
-      } catch (error) {
-        setIsLoader(false);
-        console.log(error);
-      }
-    }
-    // API_REQUESTS.TEST_FUNC().then((res) => {
-    //   console.log(res.data);
-    // });
+    //       API_REQUESTS.TEST_FUNC(formData).then((res) => {
+    //         canvasContext?.setImageFileNameFunc(res.data);
+    //         setIsLoader(false);
+    //       });
+    //     }
+    //   } catch (error) {
+    //     setIsLoader(false);
+    //     console.log(error);
+    //   }
+    // }
+    API_REQUESTS.TEST_FUNC().then((res) => {
+      console.log(res.data);
+    });
   };
 
   const openFileInputByRef = () => {
