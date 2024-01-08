@@ -3,7 +3,6 @@ import { BsGithub } from 'react-icons/bs';
 import style from './Footer.module.scss';
 
 export const Footer: FC = () => {
-  const link: string = 'https://github.com/Shlomiish';
   return (
     <footer className={style.container}>
       {/* <div className={style.footerTitleDiv}>

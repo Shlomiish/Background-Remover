@@ -11,7 +11,6 @@ export const CanvasProvider: FC<Props> = ({ children }) => {
 
   const setImageFileNameFunc = (imageFileName: string | null) => {
     setImageFileName(imageFileName);
-    console.log(imageFileName);
   };
   return (
     <CanvasContext.Provider value={{ canvasRef, setImageFileNameFunc, imageFileName }}>

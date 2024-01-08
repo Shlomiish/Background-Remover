@@ -18,8 +18,6 @@ export const ImageViewer: FC = () => {
   const canvasContext = useContext(CanvasContext);
 
   const uploadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('start');
-
     const formData = new FormData();
     let file = e?.target?.files?.[0];
     if (file) {
@@ -27,9 +25,8 @@ export const ImageViewer: FC = () => {
       setIsLoader(true);
 
       try {
-        console.log('after try');
         if (file?.type === 'image/jpeg' || file?.type === 'image/png') {
-          API_REQUESTS.TEST_FUNC(formData).then((res) => {
+          API_REQUESTS.UPLOAD_IMAGE_FUNC(formData).then((res) => {
             canvasContext?.setImageFileNameFunc(res.data);
             setIsLoader(false);
           });
@@ -39,9 +36,6 @@ export const ImageViewer: FC = () => {
         console.log(error);
       }
     }
-    // API_REQUESTS.TEST_FUNC().then((res) => {
-    //   console.log(res.data);
-    // });
   };
 
   const openFileInputByRef = () => {
